@@ -1,10 +1,12 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import AddTask from "../components/addTask/AddTask"
 import TaskList from "../components/taskList/TaskList"
 
 const Home = () => {
   return (
-    <div>Home
+    <div>
+      <Button variant="danger">Show Task Bar</Button>
       <AddTask />
       <TaskList />
     </div>
