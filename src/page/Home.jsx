@@ -12,13 +12,14 @@ const Home = () => {
 
   const toggle = () => {
     setIsOpen(!isOpen)
-    const buttonText = isOpen ? "Shoe Task Bar" : "Hide Task Bar"
+    const buttonText = isOpen ? "Show Task Bar" : "Hide Task Bar"
     setText(buttonText);
   }
 
   const getTask = async () => {
     const { data } = await axios(url)
     setTask(data)
+    console.log(data);
   }
 
   useEffect(() => {
@@ -26,17 +27,14 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
+    <div className='mt-4 d-flex justify-content-center flex-column'>
       <Button
         onClick={() => { toggle() }}
-        variant="danger"
         size="lg"
-      >
-        {text}
-      </Button>
+        variant="danger">{text}</Button>
       {isOpen && <AddTask />}
 
-      <TaskList />
+      <TaskList task={task} />
     </div>
   )
 }
